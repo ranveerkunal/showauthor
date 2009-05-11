@@ -51,8 +51,13 @@ function sa_add_author_info($content) {
 }
 
 function sa_author_info_card($curauth) {
+  $user = $curauth->ID;
   ob_start();
-  userphoto($curauth->ID);
+  if(userphoto_exists($user)) {
+    userphoto($user);
+  } else {
+    echo get_avatar($user, 96);
+  }
   $author_photo = ob_get_contents();
   ob_end_clean();
   return ""
