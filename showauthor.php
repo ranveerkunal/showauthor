@@ -81,7 +81,7 @@ function widget_author_info_card($args) {
   extract($args);
   echo $before_widget.$before_title;
 
-  // If its the main page or single post page.
+  // If its the author page.
   if (get_option('sa_add_to_author_page') == 'yes' && is_author()) {
     $title = $curauth->display_name;
     echo $title.$after_title;
@@ -90,7 +90,7 @@ function widget_author_info_card($args) {
     $title = "List of Authors";
     echo $title.$after_title;
     ob_start();
-    wp_list_authors();
+    wp_list_authors(true);
     $author_list = ob_get_contents();
     ob_end_clean();
     echo "<ul>$author_list</ul>";
