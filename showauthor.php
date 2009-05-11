@@ -90,7 +90,7 @@ function widget_author_info_card($args) {
     $title = "List of Authors";
     echo $title.$after_title;
     ob_start();
-    wp_list_authors(true);
+    wp_list_authors('show_fullname=1&optioncount=1');
     $author_list = ob_get_contents();
     ob_end_clean();
     echo "<ul>$author_list</ul>";
