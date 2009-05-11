@@ -41,9 +41,7 @@ function sa_add_author_info($content) {
   $author_post_link = ob_get_contents();
   ob_end_clean();
 
-  // If its the main page or single post page.
-  if (get_option('sa_add_to_content') == 'yes'
-      && (is_home() || is_single())) {
+  if (get_option('sa_add_to_content') == 'yes') {
     return $content.'</br><p>Author: '.$author_post_link.'</p>';
   }
 
